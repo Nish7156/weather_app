@@ -8,8 +8,16 @@ export const environment = {
   XRapidAPIHostName: 'X-RapidAPI-Host',
   XRapidAPIHostValue:'community-open-weather-map.p.rapidapi.com',
   XRapidAPIKeyName:'X-RapidAPI-Key',
-  XRapidAPIKeyValue: '484777f339msha133bebde702732p172773jsneefd12d5cafe'
+  XRapidAPIKeyValue: '484777f339msha133bebde702732p172773jsneefd12d5cafe',
+
+
+  movieurl: 'https://movie-database-alternative.p.rapidapi.com',
+  XRapidAPIHostName1: 'X-RapidAPI-Host',
+  XRapidAPIHostValue2:'movie-database-alternative.p.rapidapi.com',
+  XRapidAPIKeyName1:'X-RapidAPI-Key',
+  XRapidAPIKeyValue2: '484777f339msha133bebde702732p172773jsneefd12d5cafe'
 };
+
 
 /*
  * For easier debugging in development mode, you can import the following file

@@ -25,4 +25,15 @@ export class WeatherServiceService {
         .set('mode', 'json')
     })
   }
+
+  getMovie(s:string): Observable<weatherData>{
+    return this.http.get<any>(environment.movieurl,{
+      headers: new HttpHeaders()
+        .set(environment.XRapidAPIHostName1, environment.XRapidAPIHostValue2)
+        .set(environment.XRapidAPIKeyName1, environment.XRapidAPIKeyValue2),
+        params: new HttpParams()
+        .set('q', s)
+        .set('r', 'json')
+    })
+  }
 }

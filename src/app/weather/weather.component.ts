@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { weatherData } from '../models/weather.models';
 import { WeatherServiceService } from '../service/weather-service.service';
+
 import * as Highcharts from 'highcharts';
 import HighchartsMore from 'highcharts/highcharts-more';
 import HighchartsSolidGauge from 'highcharts/modules/solid-gauge';
@@ -23,17 +24,22 @@ export class WeatherComponent implements OnInit {
   weatherData?:weatherData;
   cityName:string='Mumbai';
   tempData:any=[];
-  temp_value:any=45;
+  temp_value:Number=45;
+  moviename:string='don';
+  movieData:any=[];
   
 
   ngOnInit(): void {
     this.getWeather(this.cityName);
     this.cityName='';
+    this.createChartGauge();
+    this.movie(this.moviename);
 }
 
 onSubmit(){
   this.getWeather(this.cityName);
   this.cityName='';
+  
 }
 
 private getWeather(cityName:string){
@@ -48,9 +54,11 @@ private getWeather(cityName:string){
 
 }
 
-
-public ngAfterViewInit(): void {
-  this.createChartGauge();
+public movie(s:string){
+  this.service.getMovie(this.moviename).subscribe((res)=>{
+    console.log(res,'Nishant');
+    this.movieData = res;
+});
 }
 
 //private getRandomNumber(min: number, max: number): number {
@@ -63,10 +71,10 @@ private createChartGauge(): void {
       type: 'solidgauge',
     },
     title: {
-      text: 'Gauge Chart',
+      text: 'Temperature',
     },
     credits: {
-      enabled: false,
+      enabled: true,
     },
     pane: {
       startAngle: -90,
